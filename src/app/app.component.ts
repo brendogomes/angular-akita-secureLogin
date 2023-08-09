@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
+import { akitaDevtools } from '@datorama/akita';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `<router-outlet></router-outlet>`,
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'angular-akita-secureLogin';
+
+  constructor(private ngZone: NgZone) {
+    akitaDevtools(this.ngZone);
+  }
 }
