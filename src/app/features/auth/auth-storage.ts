@@ -1,21 +1,24 @@
-import * as CryptoJS from 'crypto-js';
 import { AuthState } from 'src/app/core/interfaces/authState';
+import { SecureCryptUtils } from 'src/app/shared/utils/secureCryptUtils';
+import { environment } from 'src/environments/environment';
 
 const AUTH_KEY = 'auth-state';
 
 export function getAuthState() {
-  const encryptAuthState: any = localStorage.getItem(AUTH_KEY);
-  const data = CryptoJS.AES.decrypt(
-    decodeURIComponent(encryptAuthState),
-    'secret_key'
-  );
-  const decryptedAuthState = data.toString(CryptoJS.enc.Utf8);
-  return encryptAuthState ? JSON.parse(decryptedAuthState) : {};
+  const encryptedData = localStorage.getItem(AUTH_KEY);
+  if (encryptedData) {
+    const decryptedAuthState = SecureCryptUtils.decrypted(
+      encryptedData,
+      environment.SECRET_KEY
+    );
+    return decryptedAuthState;
+  }
 }
 
 export function saveAuthState(authState: AuthState): void {
-  const encryptAuthState = encodeURIComponent(
-    CryptoJS.AES.encrypt(JSON.stringify(authState), 'secret_key').toString()
+  const encryptAuthState = SecureCryptUtils.encrypt(
+    authState,
+    environment.SECRET_KEY
   );
   localStorage.setItem(AUTH_KEY, encryptAuthState);
 }

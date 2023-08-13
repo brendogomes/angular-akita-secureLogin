@@ -1,6 +1,6 @@
 import { AuthUser } from "./authUser";
 
-export interface signIn {
+export interface SignIn {
   user: AuthUser;
   token: string;
   refreshToken: string;

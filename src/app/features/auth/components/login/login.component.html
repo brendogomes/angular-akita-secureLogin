@@ -1,1 +1,13 @@
-<p>login works!</p>
+<section id="login-section">
+    <form [formGroup]="signInForm">
+        <div class="input-group flex-nowrap mb-3">
+            <input formControlName="userName" type="text" class="form-control" placeholder="Username">
+        </div>
+        <div class="input-group flex-nowrap">
+            <input formControlName="password" type="password" class="form-control" placeholder="Password">
+        </div>
+        <button [disabled]="signInForm.invalid" (click)="signIn()" type="button" class="btn btn-success w-100 mt-4">
+            Login
+        </button>
+    </form>
+</section>

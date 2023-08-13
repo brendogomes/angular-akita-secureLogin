@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../state/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthStore } from '../../state/auth.store';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { AuthStore } from '../../state/auth.store';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  signInForm?: FormGroup;
+  signInForm!: FormGroup;
 
   constructor(
     private authService: AuthService,
@@ -30,10 +31,12 @@ export class LoginComponent implements OnInit {
 
   signIn(): void {
     const response = this.authService.signIn(
-      this.signInForm!.value.userName,
-      this.signInForm!.value.password
+      this.signInForm.value.userName,
+      this.signInForm.value.password
     );
-
     this.authStore.setAuthState(response.data);
   }
 }
+
+
+

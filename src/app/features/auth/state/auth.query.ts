@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Query } from '@datorama/akita';
+import { Query, toBoolean } from '@datorama/akita';
 import { AuthStore } from './auth.store';
 import { AuthState } from 'src/app/core/interfaces/authState';
 
@@ -7,5 +7,9 @@ import { AuthState } from 'src/app/core/interfaces/authState';
 export class AuthQuery extends Query<AuthState> {
   constructor(protected override store: AuthStore) {
     super(store);
+  }
+
+  isLoggedIn(): boolean {
+    return toBoolean(this.getValue().token);
   }
 }
