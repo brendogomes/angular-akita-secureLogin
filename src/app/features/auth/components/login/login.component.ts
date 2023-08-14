@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class LoginComponent implements OnInit {
   signInForm!: FormGroup;
+  isLoggedIn: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -24,8 +25,8 @@ export class LoginComponent implements OnInit {
 
   createSignInForm(): void {
     this.signInForm = this.formBuilder.group({
-      userName: [null, Validators.required],
-      password: [null, Validators.required],
+      userName: ['admin', Validators.required],
+      password: ['1q2w3E*', Validators.required],
     });
   }
 
@@ -35,8 +36,6 @@ export class LoginComponent implements OnInit {
       this.signInForm.value.password
     );
     this.authStore.setAuthState(response.data);
+    this.isLoggedIn = true;
   }
 }
-
-
-
