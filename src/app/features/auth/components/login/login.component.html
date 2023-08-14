@@ -1,5 +1,5 @@
 <section id="login-section">
-    <form [formGroup]="signInForm">
+    <form *ngIf="!isLoggedIn" [formGroup]="signInForm">
         <div class="input-group flex-nowrap mb-3">
             <input formControlName="userName" type="text" class="form-control" placeholder="Username">
         </div>
@@ -10,4 +10,8 @@
             Login
         </button>
     </form>
-</section>
+
+    <div *ngIf="isLoggedIn">
+        <h1>Hello, {{ signInForm.value.userName }}!</h1>
+    </div>
+</section> 
