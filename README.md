@@ -1,27 +1,49 @@
-# AngularAkitaSecureLogin
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+# angular-akita-secureLogin
 
-## Development server
+Este projeto exibe a integração da biblioteca de gerenciamento de estado Akita para lidar eficientemente com o estado da aplicação. Adicionalmente, ele implementa um mecanismo de login seguro em que as credenciais de login são criptografadas antes de serem armazenadas no local storage usando a biblioteca Crypto.js. Os dados criptografados são descriptografados quando são recuperados para manter o estado de autenticação.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Stack utilizada
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Angular 14
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Instalação
 
-## Running unit tests
+Clone este repositório para sua máquina local.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+git clone https://github.com/brendogomes/angular-akita-secureLogin.git
+```
+Navegue até o diretório do projeto.
 
-## Running end-to-end tests
+```bash
+cd angular-akita-secureLogin
+```
+Instale as dependências do projeto.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm install
+```
+Execute a aplicação.
 
-## Further help
+```bash
+ng serve
+```
+    
+## Utilização
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Execute o projeto seguindo as instruções na seção Instalação.
+
+Acesse a aplicação em seu navegador da web preferido em http://localhost:4200.
+
+Explore as diferentes seções da aplicação para entender como o Akita é utilizado para o gerenciamento de estado e como a biblioteca Crypto.js é integrada para o login seguro e criptografia.
+
+## Recursos
+
+Demonstra a integração do Akita para um gerenciamento de estado eficiente.
+Implementa um processo de login seguro utilizando Crypto.js para criptografia e descriptografia de dados.
+Utiliza o local storage para persistir as credenciais de login criptografadas.
+Oferece um exemplo abrangente de como lidar com dados sensíveis de forma segura em uma aplicação front-end.
+
